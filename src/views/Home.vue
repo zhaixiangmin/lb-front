@@ -1,9 +1,9 @@
 <template>
   <div class="home-page">
-    <div class="real-time-info">
+    <section class="real-time-info">
       <TitleSplit title="实时资讯"></TitleSplit>
       <ul class="info-ul">
-        <li class="info-li">
+        <li class="info-li-img">
           <div class="up">
             <el-image
                 src="//12618670.s61i.faiusr.com/4/AD0IrpeCBhAEGAAg3bjizQUo5piuwwEw_gE4jAE.png"
@@ -16,16 +16,33 @@
         </li>
         <li class="info-li" v-for="n in 2" :key="n">
           <dl class="up">
-            <dt>{{ infoList[n-1].title }}</dt>
-            <dd>{{ infoList[n-1].content }}</dd>
+            <dt>{{ infoList[(n-1)*2].title }}</dt>
+            <dd>{{ infoList[(n-1)*2].content }}</dd>
           </dl>
           <dl class="down">
-            <dt>{{ infoList[n].title }}</dt>
-            <dd>infoList[n].content</dd>
+            <dt>{{ infoList[n*2-1].title }}</dt>
+            <dd>{{ infoList[n*2-1].content }}</dd>
           </dl>
         </li>
       </ul>
-    </div>
+    </section>
+    <section class="img-container">
+      <ul>
+        <li class="img-box">
+          <el-image
+              src="//12618670.s61i.faiusr.com/2/AD0IrpeCBhACGAAg08iAxAUomrecyAQw4AM4_gE.jpg"
+              fit="fit"></el-image>
+        </li>
+        <li class="text-box">
+          <div class="title">一般纳税人代理记账</div>
+          <div class="text">不同的公司所属的行业以及公司的规模都不同，所以具体的税种和税率要根据实际情况以及公司所在地相关法律法规而定。</div>
+        </li>
+      </ul>
+      <div class="down-box">
+        <div class="title">快速审核、优化提交流程、全程跟踪</div>
+        <div class="text">全天候审核资料、急速上报国家商标局，让您以更快的速度拿到注册证</div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -65,14 +82,68 @@ export default {
 
 <style scoped lang="scss">
 .home-page {
-  .real-time-info {
+  section.real-time-info {
     .info-ul {
       display: flex;
+      justify-content: space-between;
+
+      & > li {
+        width: 300px;
+        text-align: left;
+      }
+
+      .info-li-img {
+        div.up {
+          padding-top: 20px;
+        }
+
+        dl {
+          margin-top: 28px;
+
+          dt {
+            line-height: 28px;
+            font-size: 16px;
+            color: #333;
+          }
+
+          dd {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
 
       .info-li {
-        width: 266px;
+        font-size: 14px;
+
+        dl {
+          height: 150px;
+
+          &.up {
+            margin-top: 8px;
+            border-bottom: 1px solid #e5e5e5;
+          }
+
+          &.down {
+            margin-top: 23px;
+          }
+
+          dt {
+            line-height: 28px;
+            color: #333;
+          }
+
+          dd {
+            font-size: 14px;
+            color: #666;
+          }
+        }
       }
     }
+  }
+
+  section.img-container {
+
   }
 }
 </style>
