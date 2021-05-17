@@ -27,7 +27,7 @@ export default {
     height: 45px;
     line-height: 45px;
     font-size: 16px;
-    color: #f13a3a;
+    color: $lb-red;
     border-bottom: 1px solid #f13a3a;
   }
 
